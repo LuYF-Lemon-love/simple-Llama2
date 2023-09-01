@@ -1,63 +1,40 @@
-<h1 align="center">
-  Llama2-Chinese
-</h1>
-<p align="center" width="100%">
-  <img src="assets/llama.png" alt="Llama" style="width: 20%; display: block; margin: auto;"></a>
-</p>
-<p align="center">
-  <font face="黑体" color=orange size="6"> 最好的中文Llama大模型 </font>
-</p>
-<p align="center">
-  <a href="https://llama.family">在线体验：llama.family</a>
-</p>
-<p align="center">
-  <a href="https://huggingface.co/FlagAlpha/Atom-7B">基于Llama2的开源中文预训练大模型Atom-7B</a>
-</p>
-
-</br></br>
-
+# Llama2-Chinese
 
 ## 🗂️ 内容导引
-- [🐼 国内Llama2最新下载地址！](#-国内llama2最新下载地址)
-- [🔥 社区介绍：Llama中文社区](#-社区介绍llama中文社区)
-- [📢 社区公告](#-社区公告)
-- [🔵 Atom模型](#-atom模型)
-  - [大规模的中文数据预训练](#大规模的中文数据预训练)
-  - [更高效的中文词表](#更高效的中文词表)
-  - [自适应上下文扩展](#自适应上下文扩展)
-- [📝 数据来源](#-数据来源)
-- [⏬ 模型部署](#-模型部署)
-  - [模型下载](#模型下载)
-    - [Meta官方Llama2模型](#meta官方llama2模型)
-    - [基于Llama2的中文微调模型](#基于llama2的中文微调模型)
-    - [基于Llama2的中文预训练模型Atom](#基于llama2的中文预训练模型atom)
-  - [模型调用代码示例](#模型调用代码示例)
-  - [FastAPI接口搭建](#fastapi接口搭建)
-  - [Gradio快速搭建问答平台](#gradio快速搭建问答平台)
-  - [Docker部署问答接口](#docker部署问答接口)
-- [💡 模型微调](#-模型微调)
-  - [微调过程](#微调过程)
-    - [Step1: 环境准备](#step1-环境准备)
-    - [Step2: 数据准备](#step2-数据准备)
-    - [Step3: 微调脚本](#step3-微调脚本)
-  - [加载微调模型](#加载微调模型)
-- [🍄 模型量化](#-模型量化)
-- [🚀 推理加速](#-推理加速)
-  - [lmdeploy](#lmdeploy)
-  - [FasterTransformer](#fastertransformer)
-  - [vLLM](#vllm)
-- [🥇 模型评测](#-模型评测)
-- [💪 外延能力](#-外延能力)
-  - [LangChain](#langchain)
-- [🐞 代码模型](#-代码模型)
-- [📖 学习资料](#-学习资料)
-  - [Meta官方对于Llama2的介绍](#meta官方对于llama2的介绍)
-  - [Llama相关论文](#llama相关论文)
-  - [Llama2的评测结果](#llama2的评测结果)
-- [🎉 致谢](#-致谢)
-- [🤔 问题反馈](#-问题反馈)
-
-
+- [Llama2-Chinese](#llama2-chinese)
+  - [🗂️ 内容导引](#️-内容导引)
+  - [🐼 国内Llama2最新下载地址！](#-国内llama2最新下载地址)
+  - [📢 社区公告](#-社区公告)
+  - [📝 数据来源](#-数据来源)
+  - [⏬ 模型部署](#-模型部署)
+    - [模型下载](#模型下载)
+      - [Meta官方Llama2模型](#meta官方llama2模型)
+      - [基于Llama2的中文微调模型](#基于llama2的中文微调模型)
+      - [基于Llama2的中文预训练模型Atom](#基于llama2的中文预训练模型atom)
+    - [模型调用代码示例](#模型调用代码示例)
+    - [FastAPI接口搭建](#fastapi接口搭建)
+    - [Gradio快速搭建问答平台](#gradio快速搭建问答平台)
+    - [Docker部署问答接口](#docker部署问答接口)
+  - [💡 模型微调](#-模型微调)
+    - [微调过程](#微调过程)
+      - [Step1: 环境准备](#step1-环境准备)
+      - [Step2: 数据准备](#step2-数据准备)
+      - [Step3: 微调脚本](#step3-微调脚本)
+    - [加载微调模型](#加载微调模型)
+  - [🍄 模型量化](#-模型量化)
+  - [🚀 推理加速](#-推理加速)
+    - [lmdeploy](#lmdeploy)
+    - [FasterTransformer](#fastertransformer)
+    - [vLLM](#vllm)
+  - [🥇 模型评测](#-模型评测)
+  - [💪 外延能力](#-外延能力)
+    - [LangChain](#langchain)
+  - [🐞 代码模型](#-代码模型)
+  - [📖 学习资料](#-学习资料)
+    - [Meta官方对于Llama2的介绍](#meta官方对于llama2的介绍)
+    - [Llama相关论文](#llama相关论文)
+    - [Llama2的评测结果](#llama2的评测结果)
+  - [参考](#参考)
 
 ## 🐼 国内Llama2最新下载地址！
 
@@ -70,154 +47,19 @@
 
 - Llama2-7B-Chat官网版本：https://pan.xunlei.com/s/VN_kQa1_HBvV-X9QVI6jV2kOA1?pwd=xmra
 
-- Llama2-13B官网版本：https://pan.xunlei.com/s/VN_izibaMDoptluWodzJw4cRA1?pwd=2qqb
-
-- Llama2-13B-Chat官网版本：https://pan.xunlei.com/s/VN_iyyponyapjIDLXJCNfqy7A1?pwd=t3xw
-
 - Llama2-7B Hugging Face版本：https://pan.xunlei.com/s/VN_t0dUikZqOwt-5DZWHuMvqA1?pwd=66ep
 
 - Llama2-7B-Chat Hugging Face版本：https://pan.xunlei.com/s/VN_oaV4BpKFgKLto4KgOhBcaA1?pwd=ufir
-
-- Llama2-13B Hugging Face版本：https://pan.xunlei.com/s/VN_yT_9G8xNOz0SDWQ7Mb_GZA1?pwd=yvgf
-  
-- Llama2-13B-Chat Hugging Face版本：https://pan.xunlei.com/s/VN_yA-9G34NGL9B79b3OQZZGA1?pwd=xqrg
-
-- Llama2-70B-Chat Hugging Face版本：https://pan.xunlei.com/s/VNa_vCGzCy3h3N7oeFXs2W1hA1?pwd=uhxh#
-
-- CodeLlama-7b官网版本：https://pan.baidu.com/s/1cIPzdNywWLvQI7_2QanOEQ?pwd=zfwi 
-
-- CodeLlama-7b-Python官网版本：https://pan.baidu.com/s/1liY8klGoDagYbpw-g-oFag?pwd=i952
-
-- CodeLlama-7b-Instruct官网版本：https://pan.baidu.com/s/108o9_DT2E_vfSGtOnDCQVw?pwd=zkt9
-
-- CodeLlama-13b官网版本：https://pan.baidu.com/s/1lLaeHv0XEBv0iiZzI1dpnw?pwd=qn99
-
-- CodeLlama-13b-Python官网版本：https://pan.baidu.com/s/1OLVfvZS_oqL3oqMKwsI87w?pwd=a78k
-
-- CodeLlama-13b-Instruct官网版本：https://pan.baidu.com/s/1HyxJl4w8wElgkZRh2ATrXQ?pwd=seg6
-
-</details>
-
-## 🔥 社区介绍：Llama中文社区
-
-欢迎来到Llama中文社区！我们是一个专注于Llama模型在中文方面的优化和上层建设的高级技术社区。
-**\*基于大规模中文数据，从预训练开始对Llama2模型进行中文能力的持续迭代升级\***。
-我们热忱欢迎对大模型LLM充满热情的开发者和研究者加入我们的行列。
-
-<details>
-
-### 为什么选择Llama2中文社区？
-🚀 **高级工程师团队支持**：社区有一批专注为大家服务的NLP高级工程师，我们有着强大的技术支持和丰富的经验，为您提供专业的指导和帮助。
-
-🎯 **中文优化**：我们致力于在Llama2模型的中文处理方面进行优化，探索适用于中文的最佳实践，以提升其性能和适应性。
-
-💡 **创新交流**：我们拥有一支富有创造力和经验的社区成员团队，定期组织线上活动、技术研讨和经验分享，促进成员间的创新交流。
-
-🌐 **全球联结**：我们欢迎来自世界各地的开发者加入社区，构建一个开放、多元化的学习和交流平台。
-
-🤝 **开放共享**：我们鼓励社区成员开源分享代码和模型，推动合作共赢，共同促进中文NLP技术的发展。
-
-### 社区活动
-🗓️ **线上讲座**：邀请行业内专家进行线上讲座，分享Llama2在中文NLP领域的最新技术和应用，探讨前沿研究成果。
-
-💻 **项目展示**：成员可展示自己在Llama2中文优化方面的项目成果，获得反馈和建议，促进项目协作。
-
-📚 **学习资源**：社区维护丰富的学习资料库，包括教程、文档和论文解读，为成员提供全面的学习支持。
-
-📝 **论文解读**：社区成员共同解读与Llama2相关的最新研究论文，深入理解前沿算法和方法。
-
-🎉 **主题活动**：定期举办各类主题活动，包括挑战赛、黑客马拉松和技术沙龙，让社区成员在轻松愉快的氛围中交流和学习。
-
-🌟 **奖励计划**：我们设立奖励计划，对社区中积极参与、贡献优秀的成员给予荣誉和奖励，激励更多优秀人才的加入。
-
-📈 **技术咨询**：我们提供技术咨询服务，解答您在Llama2开发和优化过程中遇到的问题，助您快速攻克难关。
-
-🚀 **项目合作**：鼓励成员间的项目合作，共同探索Llama2在实际应用中的潜力，打造创新解决方案。
-
-
-### 立即加入我们！
-📚 **愿景**：无论您是对Llama2已有研究和应用经验的专业开发者，还是对Llama2中文优化感兴趣并希望深入探索的新手，我们都热切期待您的加入。在Llama2中文社区，您将有机会与行业内顶尖人才共同交流，携手推动中文NLP技术的进步，开创更加美好的技术未来！
-
-🔗 **温馨提示**：本社区为专业技术交流平台，我们热切期望志同道合的开发者和研究者加入。请遵守社区准则，共同维护积极向上的学习氛围，任何与Llama2无关的内容和广告将被清理。感谢您的理解和支持！
 
 </details>
 
 ## 📢 社区公告
 
-【最新】2023年8月28日：发布基于Llama2进行中文预训练的开源大模型[Atom-7B](https://huggingface.co/FlagAlpha/Atom-7B)，并将持续更新，详情参考[社区公众号文章](https://mp.weixin.qq.com/s/Bdx0JTVh1kgPn5ydYxIkEw)！
-
 <details>
-
-- 2023年8月26日：提供[FastAPI](#fastapi接口搭建)接口搭建脚本！
 
 - 2023年8月26日：提供将Meta原始模型参数转换为兼容Hugging Face的[格式转化脚本](https://github.com/FlagAlpha/Llama2-Chinese/blob/main/scripts/convert2hf/READMD.md)！
 
-- 2023年8月26日：新增[Code Llama](#-代码模型)模型！
-
-- 2023年8月15日：新增[PEFT加载微调模型参数](#加载微调模型)的代码示例！
-
-- 2023年8月14日：[大模型数据共享训练平台](https://llama.family)上线，没有算力也能参与大模型训练，社区每位成员贡献的数据都将决定模型能力的未来走向！
-
-- 2023年8月3日：新增FasterTransformer和vLLM的GPU[推理加速](#-推理加速)支持！
-
-- 2023年7月31日：【重磅】国内首个真正意义上的Llama2中文大模型发布！详情参见[社区公众号文章](https://mp.weixin.qq.com/s/lExUU7z_MvgJ7tzQPF8tUQ)
-
-- 2023年7月28日：通过[Docker部署](#docker部署问答接口)问答接口！
-
-- 2023年7月27日：新增[LangChain](#langchain)支持！
-
-- 2023年7月26日：新增Llama2-13B中文微调参数的[4bit量化压缩版本](#-模型量化)！
-
-- 2023年7月25日：社区微信公众号“Llama中文社区”欢迎大家关注，获取最新分享和动态！
-
-- 2023年7月24日：[FlagAlpha](https://huggingface.co/FlagAlpha)新增Llama2-13B中文微调参数！
-
-- 2023年7月24日：[llama.family](https://llama.family/)新增Llama2-70B在线体验！
-
-- 2023年7月23日：Llama2中文微调参数发布至Hugging Face仓库[FlagAlpha](https://huggingface.co/FlagAlpha)！
-
-- 2023年7月22日：Llama2在线体验链接[llama.family](https://llama.family/)上线，同时包含Meta原版和中文微调版本！
-
-- 2023年7月21日：评测了Meta原始版Llama2 Chat模型的[中文问答能力](#-模型评测)！
-
-- 2023年7月21日：新增Llama2模型的Hugging Face版本国内下载地址！
-
-- 2023年7月20日：新增[飞书知识库文档](https://chinesellama.feishu.cn/wiki/space/7257824476874768388?ccm_open_type=lark_wiki_spaceLink)，欢迎大家一起共建！
-
-- 2023年7月20日：国内Llama2最新下载地址上线！
-
-- 2023年7月19日：正式启动Llama2模型的中文预训练，关注我们获取实时动态！
-
-- 2023年7月19日：Llama2国内下载地址正在启动，敬请期待！
-
-- 2023年7月19日：开启Llama2中文社区，欢迎大家加入！
-
 </details>
-
-
-
-## 🔵 Atom模型
-
-**原子大模型Atom**由Llama中文社区和原子回声联合打造，在中文大模型评测榜单C-Eval中位居前十（8月21日评测提交时间）。
-<p align="center" width="100%">
-<img src="./assets/ceval.jpg" alt="ceval" style="width: 100%; display: block; margin: auto;">
-</p>
-
-Atom系列模型包含Atom-7B和Atom-13B，基于Llama2做了中文能力的持续优化。Atom-7B目前已完全开源，支持商用，可在[Hugging Face](https://huggingface.co/FlagAlpha/Atom-7B)仓库获取模型。Atom大模型针对中文做了以下优化：
-
-### 大规模的中文数据预训练
-
-原子大模型Atom在Llama2的基础上，采用大规模的中文数据进行持续预训练，包含百科、书籍、博客、新闻、公告、小说、金融数据、法律数据、医疗数据、代码数据、专业论文数据、中文自然语言处理竞赛数据集等，详见[📝 数据来源](#-数据来源)。
-
-同时对庞大的数据进行了过滤、打分、去重，筛选出超过1T token的高质量中文数据，持续不断加入训练迭代中。
-
-### 更高效的中文词表
-为了提高中文文本处理的效率，我们针对Llama2模型的词表进行了深度优化。首先，我们基于数百G的中文文本，在该模型词表的基础上扩展词库至65,000个单词。经过测试，我们的改进使得中文编码/解码速度提高了约350％。此外，我们还扩大了中文字符集的覆盖范围，包括所有emoji符号😊。这使得生成带有表情符号的文章更加高效。
-
-### 自适应上下文扩展
-Atom大模型默认支持4K上下文，利用位置插值PI和Neural Tangent Kernel （NTK）方法，经过微调可以将上下文长度扩增到32K。
-
-
 
 ## 📝 数据来源
 
@@ -231,10 +73,6 @@ Atom大模型默认支持4K上下文，利用位置插值PI和Neural Tangent Ker
 | [Clue](https://github.com/CLUEbenchmark/CLUEDatasetSearch) | Clue开放的中文预训练数据，进行清洗后的高质量中文长文本数据   |
 | 竞赛数据集                                                 | 近年来中文自然语言处理多任务竞赛数据集，约150个              |
 | [MNBVC](https://github.com/esbatmop/MNBVC)                 | MNBVC 中清洗出来的部分数据集                                 |
-
-**希望大家如果有较高质量的数据集能够提供给我们，不胜感激!💕💕**
-
-
 
 ## ⏬ 模型部署
 
@@ -521,30 +359,6 @@ Meta官方在2023年8月24日发布了发布了Code Llama，基于代码数据�
 <img src="./assets/llama_eval.jpeg" style="width: 100%; display: block; margin: auto;">
 </p>
 
+## 参考
 
-## 🎉 致谢
-
-感谢原子回声[AtomEcho](https://github.com/AtomEcho)团队的技术和资源支持！
-
-感谢 @xzsGenius 对Llama2中文社区的贡献！
-
-感谢 @Z Potentials社区对Llama2中文社区的支持！
-
-
-## 🤔 问题反馈
-
-如有问题，请在GitHub Issue中提交，在提交问题之前，请先查阅以往的issue是否能解决你的问题。
-
-礼貌地提出问题，构建和谐的讨论社区。
-
-加入[飞书知识库](https://chinesellama.feishu.cn/wiki/space/7257824476874768388?ccm_open_type=lark_wiki_spaceLink)，一起共建社区文档。
-
-加入微信群讨论😍😍
-
-<p align="center" width="100%">
-<img src="./assets/wechat.jpeg" alt="Wechat" style="width: 100%; display: block; margin: auto;">
-</p>
-
-<p align="center" width="100%">
-<img src="https://api.star-history.com/svg?repos=FlagAlpha/Llama2-Chinese&type=Date" alt="Wechat" style="width: 100%; display: block; margin: auto;">
-</p>
+[1] Llama2-Chinese: [FlagAlpha/Llama2-Chinese](https://github.com/FlagAlpha/Llama2-Chinese), [Llama 中文社区](https://llama.family/), [飞书知识库文档](https://chinesellama.feishu.cn/wiki/space/7257824476874768388?ccm_open_type=lark_wiki_spaceLink)
