@@ -4,7 +4,6 @@
 - [Llama2-Chinese](#llama2-chinese)
   - [🗂️ 内容导引](#️-内容导引)
   - [🐼 国内Llama2最新下载地址！](#-国内llama2最新下载地址)
-  - [📢 社区公告](#-社区公告)
   - [📝 数据来源](#-数据来源)
   - [⏬ 模型部署](#-模型部署)
     - [模型下载](#模型下载)
@@ -12,9 +11,7 @@
       - [基于Llama2的中文微调模型](#基于llama2的中文微调模型)
       - [基于Llama2的中文预训练模型Atom](#基于llama2的中文预训练模型atom)
     - [模型调用代码示例](#模型调用代码示例)
-    - [FastAPI接口搭建](#fastapi接口搭建)
     - [Gradio快速搭建问答平台](#gradio快速搭建问答平台)
-    - [Docker部署问答接口](#docker部署问答接口)
   - [💡 模型微调](#-模型微调)
     - [微调过程](#微调过程)
       - [Step1: 环境准备](#step1-环境准备)
@@ -29,7 +26,6 @@
   - [🥇 模型评测](#-模型评测)
   - [💪 外延能力](#-外延能力)
     - [LangChain](#langchain)
-  - [🐞 代码模型](#-代码模型)
   - [📖 学习资料](#-学习资料)
     - [Meta官方对于Llama2的介绍](#meta官方对于llama2的介绍)
     - [Llama相关论文](#llama相关论文)
@@ -50,14 +46,6 @@
 - Llama2-7B Hugging Face版本：https://pan.xunlei.com/s/VN_t0dUikZqOwt-5DZWHuMvqA1?pwd=66ep
 
 - Llama2-7B-Chat Hugging Face版本：https://pan.xunlei.com/s/VN_oaV4BpKFgKLto4KgOhBcaA1?pwd=ufir
-
-</details>
-
-## 📢 社区公告
-
-<details>
-
-- 2023年8月26日：提供将Meta原始模型参数转换为兼容Hugging Face的[格式转化脚本](https://github.com/FlagAlpha/Llama2-Chinese/blob/main/scripts/convert2hf/READMD.md)！
 
 </details>
 
@@ -144,35 +132,12 @@ text = tokenizer.decode(generate_ids[0])
 print(text)
 ```
 
-### FastAPI接口搭建
-
-为了方便通过API方式调用模型，我们提供了脚本用来快速搭建[FastAPI](https://github.com/tiangolo/fastapi)接口，相关测试代码与API参数设置见[API 调用](https://github.com/FlagAlpha/Llama2-Chinese/blob/main/scripts/api/READMD.md)。
-
 ### Gradio快速搭建问答平台
 
 基于gradio搭建的问答界面，实现了流式的输出，将下面代码复制到控制台运行，以下代码以Atom-7B模型为例，<font color="#006600">不同模型只需修改一下代码里的模型名称就好了😊</font><br/>
 ```
 python examples/chat_gradio.py --model_name_or_path FlagAlpha/Atom-7B
 ```
-
-### Docker部署问答接口
-详情参见：[Docker部署](https://github.com/FlagAlpha/Llama2-Chinese/blob/main/docs/chat_gradio_guide.md)
-
-第一步：准备docker镜像，通过docker容器启动[chat_gradio.py](../examples/chat_gradio.py)
-```bash
-git clone https://github.com/FlagAlpha/Llama2-Chinese.git
-
-cd Llama2-Chinese
-
-docker build -f docker/Dockerfile -t flagalpha/llama2-chinese-7b:gradio .
-```
-
-第二步：通过docker-compose启动chat_gradio
-```bash
-cd Llama2-Chinese/docker
-doker-compose up -d --build
-```
-
 
 ## 💡 模型微调
 
@@ -327,24 +292,6 @@ while True:
     response = llm(human_input)
     print(f"Llama2: {response}")
 ```
-
-## 🐞 代码模型
-Meta官方在2023年8月24日发布了发布了Code Llama，基于代码数据对Llama2进行了微调，提供三个不同功能的版本：基础模型（Code Llama）、Python专用模型（Code Llama - Python）和指令跟随模型（Code Llama - Instruct），包含7B、13B、34B三种不同参数规模。不同模型能力区别如下表所示：
-
-|  模型类别          |        模型名称         | 代码续写 | 代码填充 | 指令编程 |
-|-----------------------|------------------------|------|------|------|
-| Code Llama            | CodeLlama-7b           | ✅    | ✅    | ❌    |
-|                       | CodeLlama-13b          | ✅    | ✅    | ❌    |
-|                       | CodeLlama-34b          | ✅    | ❌    | ❌    |
-| Code Llama - Python   | CodeLlama-7b-Python    | ✅    | ❌    | ❌    |
-|                       | CodeLlama-13b-Python   | ✅    | ❌    | ❌    |
-|                       | CodeLlama-34b-Python   | ✅    | ❌    | ❌    |
-| Code Llama - Instruct | CodeLlama-7b-Instruct  | ❌    | ✅    | ✅    |
-|                       | CodeLlama-13b-Instruct | ❌    | ✅    | ✅    |
-|                       | CodeLlama-34b-Instruct | ❌    | ❌    | ✅    |
-
-我们提供了Code Llama的[国内下载链接](#-国内llama2最新下载地址上线)以及在线体验地址[llama.family](https://llama.family/)，关于Code Llama的详细信息可以参考官方Github仓库[codellama](https://github.com/facebookresearch/codellama)。
-
 
 ## 📖 学习资料
 ### Meta官方对于[Llama2](https://ai.meta.com/llama)的介绍
