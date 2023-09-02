@@ -4,7 +4,6 @@
 - [Llama2-Chinese](#llama2-chinese)
   - [🗂️ 内容导引](#️-内容导引)
   - [🐼 国内Llama2最新下载地址！](#-国内llama2最新下载地址)
-  - [📝 数据来源](#-数据来源)
   - [⏬ 模型部署](#-模型部署)
     - [模型下载](#模型下载)
       - [Meta官方Llama2模型](#meta官方llama2模型)
@@ -27,15 +26,11 @@
   - [💪 外延能力](#-外延能力)
     - [LangChain](#langchain)
   - [📖 学习资料](#-学习资料)
-    - [Meta官方对于Llama2的介绍](#meta官方对于llama2的介绍)
     - [Llama相关论文](#llama相关论文)
     - [Llama2的评测结果](#llama2的评测结果)
   - [参考](#参考)
 
 ## 🐼 国内Llama2最新下载地址！
-
-本仓库中的代码示例主要是基于Hugging Face版本参数进行调用，我们提供了脚本将Meta官网发布的模型参数转换为Hugging Face支持的格式，可以直接通过transformers库进行加载：[参数格式转化](https://github.com/FlagAlpha/Llama2-Chinese/blob/main/scripts/convert2hf/READMD.md)
-
 
 <details>
 
@@ -49,44 +44,20 @@
 
 </details>
 
-## 📝 数据来源
-
-我们通过以下数据来优化Llama2的中文能力:
-
-| 类型                                                       | 描述                                                         |
-| ---------------------------------------------------------- | ------------------------------------------------------------ |
-| 网络数据                                                   | 互联网上公开的网络数据，挑选出去重后的高质量中文数据，涉及到百科、书籍、博客、新闻、公告、小说等高质量长文本数据。 |
-| [Wikipedia](https://github.com/goldsmith/Wikipedia)        | 中文Wikipedia的数据                                          |
-| [悟道](https://github.com/BAAI-WuDao/Model)                | 中文悟道开源的200G数据                                       |
-| [Clue](https://github.com/CLUEbenchmark/CLUEDatasetSearch) | Clue开放的中文预训练数据，进行清洗后的高质量中文长文本数据   |
-| 竞赛数据集                                                 | 近年来中文自然语言处理多任务竞赛数据集，约150个              |
-| [MNBVC](https://github.com/esbatmop/MNBVC)                 | MNBVC 中清洗出来的部分数据集                                 |
-
 ## ⏬ 模型部署
-
-Meta在🤗Hugging Face上提供了所有模型的下载链接：https://huggingface.co/meta-llama
-
-Llama中文社区的中文模型下载链接：https://huggingface.co/FlagAlpha
 
 ### 模型下载
 
 #### Meta官方Llama2模型
 
-Llama2预训练模型包含7B、13B和70B三个版本。Llama2-Chat模型基于预训练模型进行了监督微调，具备更强的对话能力。
-
 |  类别  | 模型名称   | 🤗模型加载名称             | 下载地址                                                     |
 |  ----------  | ---------- | ------------------------- | --------------------- |
 |  预训练  | Llama2-7B  | meta-llama/Llama-2-7b-hf  | [模型下载](https://huggingface.co/meta-llama/Llama-2-7b-hf)  |
 |  预训练  | Llama2-13B | meta-llama/Llama-2-13b-hf | [模型下载](https://huggingface.co/meta-llama/Llama-2-13b-hf) |
-|  预训练  | Llama2-70B | meta-llama/Llama-2-70b-hf | [模型下载](https://huggingface.co/meta-llama/Llama-2-70b-hf) |
 |  Chat  | Llama2-7B-Chat  | meta-llama/Llama-2-7b-chat-hf  | [模型下载](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) |
 |  Chat  | Llama2-13B-Chat | meta-llama/Llama-2-13b-chat-hf | [模型下载](https://huggingface.co/meta-llama/Llama-2-13b-chat-hf) |
-|  Chat  | Llama2-70B-Chat | meta-llama/Llama-2-70b-chat-hf | [模型下载](https://huggingface.co/meta-llama/Llama-2-70b-chat-hf) |
-
 
 #### 基于Llama2的中文微调模型
-
-我们基于中文指令数据集对Llama2-Chat模型进行了微调，使得Llama2模型有着更强的中文对话能力。LoRA参数以及与基础模型合并的参数均已上传至[Hugging Face](https://huggingface.co/FlagAlpha)，目前包含7B和13B的模型。
 
 |  类别  | 模型名称   | 🤗模型加载名称             | 基础模型版本 |    下载地址                                                     |
 |  ----------  | ---------- | ------------- |  ----------------- | ------------------- |
@@ -97,8 +68,6 @@ Llama2预训练模型包含7B、13B和70B三个版本。Llama2-Chat模型基于�
 
 
 #### 基于Llama2的中文预训练模型Atom
-
-社区提供Atom-7B模型的开放下载，模型参数会持续不断更新，关于模型的进展详见社区官网[llama.family](https://llama.family)。
 
 | 模型名称        | 🤗模型加载名称                  | 下载地址                                                     |
 | --------------- | ------------------------------ | ------------------------------------------------------------ |
@@ -140,8 +109,6 @@ python examples/chat_gradio.py --model_name_or_path FlagAlpha/Atom-7B
 ```
 
 ## 💡 模型微调
-
-本仓库中提供了基于LoRA的微调代码，未来我们将会扩展更多的微调算法，敬请期待！关于LoRA的详细介绍可以参考论文“[LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685)”以及微软Github仓库[LoRA](https://github.com/microsoft/LoRA)。
 
 ### 微调过程
 
@@ -293,14 +260,11 @@ while True:
     print(f"Llama2: {response}")
 ```
 
-## 📖 学习资料
-### Meta官方对于[Llama2](https://ai.meta.com/llama)的介绍
-自从Meta公司发布第一代LLaMA模型以来，羊驼模型家族繁荣发展。近期Meta发布了Llama2版本，开源可商用，在模型和效果上有了重大更新。Llama2总共公布了7B、13B和70B三种参数大小的模型。相比于LLaMA，Llama2的训练数据达到了2万亿token，上下文长度也由之前的2048升级到4096，可以理解和生成更长的文本。Llama2 Chat模型基于100万人类标记数据微调得到，在英文对话上达到了接近ChatGPT的效果。      
+## 📖 学习资料  
 
 ### Llama相关论文
 * [LLaMA: Open and Efficient Foundation Language Models](https://arxiv.org/abs/2302.13971)
 * [Llama 2: Open Foundation and Fine-Tuned Chat Models](https://arxiv.org/abs/2307.09288)
-* [Code Llama: Open Foundation Models for Code](https://ai.meta.com/research/publications/code-llama-open-foundation-models-for-code/)
 ### Llama2的评测结果
 <p align="center" width="100%">
 <img src="./assets/llama_eval.jpeg" style="width: 100%; display: block; margin: auto;">
@@ -309,3 +273,11 @@ while True:
 ## 参考
 
 [1] Llama2-Chinese: [FlagAlpha/Llama2-Chinese](https://github.com/FlagAlpha/Llama2-Chinese), [Llama 中文社区](https://llama.family/), [飞书知识库文档](https://chinesellama.feishu.cn/wiki/space/7257824476874768388?ccm_open_type=lark_wiki_spaceLink)
+
+[2] [Wikipedia](https://github.com/goldsmith/Wikipedia)
+
+[3] [悟道](https://github.com/BAAI-WuDao/Model)
+
+[4] [Clue](https://github.com/CLUEbenchmark/CLUEDatasetSearch)
+
+[5] [MNBVC](https://github.com/esbatmop/MNBVC)
