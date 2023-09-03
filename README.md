@@ -9,7 +9,6 @@
       - [基于Llama2的中文微调模型](#基于llama2的中文微调模型)
       - [基于Llama2的中文预训练模型Atom](#基于llama2的中文预训练模型atom)
     - [模型调用代码示例](#模型调用代码示例)
-    - [Gradio快速搭建问答平台](#gradio快速搭建问答平台)
   - [💡 模型微调](#-模型微调)
     - [微调过程](#微调过程)
       - [Step1: 环境准备](#step1-环境准备)
@@ -58,14 +57,6 @@ pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 ### 模型调用代码示例
 
 1. [get_start.py](get_start.py)
-
-### Gradio快速搭建问答平台
-
-基于gradio搭建的问答界面，实现了流式的输出，将下面代码复制到控制台运行，以下代码以Atom-7B模型为例，<font color="#006600">不同模型只需修改一下代码里的模型名称就好了😊</font><br/>
-
-```
-python examples/chat_gradio.py --model_name_or_path Atom-7B
-```
 
 ## 💡 模型微调
 
