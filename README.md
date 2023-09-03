@@ -51,6 +51,7 @@ pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 | --------------- | ------------------------------ | ------------------------------------------------------------ |
 | Atom-7B  | FlagAlpha/Atom-7B  | [模型下载](https://huggingface.co/FlagAlpha/Atom-7B) |
 
+基于Llama2进行中文预训练的开源大模型Atom-7B发布于2023年8月28日。
 
 ### 模型调用代码示例
 
