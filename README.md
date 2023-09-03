@@ -15,8 +15,6 @@
       - [Step2: 数据准备](#step2-数据准备)
       - [Step3: 微调脚本](#step3-微调脚本)
     - [加载微调模型](#加载微调模型)
-  - [💪 外延能力](#-外延能力)
-    - [LangChain](#langchain)
   - [📖 学习资料](#-学习资料)
     - [Llama相关论文](#llama相关论文)
     - [Llama2的评测结果](#llama2的评测结果)
@@ -119,24 +117,6 @@ generate_input = {
 generate_ids  = model.generate(**generate_input)
 text = tokenizer.decode(generate_ids[0])
 print(text)
-```
-
-## 💪 外延能力
-
-除了持续增强大模型内在的知识储备、通用理解、逻辑推理和想象能力等，未来，我们也会不断丰富大模型的外延能力，例如知识库检索、计算工具、WolframAlpha、操作软件等。
-我们首先集成了LangChain框架，可以更方便地基于Llama2开发文档检索、问答机器人和智能体应用等，关于LangChain的更多介绍参见[LangChain](https://github.com/langchain-ai/langchain)。
-### LangChain
-针对LangChain框架封装的Llama2 LLM类见[examples/llama2_for_langchain.py](https://github.com/FlagAlpha/Llama2-Chinese/blob/main/examples/llama2_for_langchain.py)，简单的调用代码示例如下：
-```python
-from llama2_for_langchain import Llama2
-
-# 这里以调用4bit量化压缩的Llama2-Chinese参数FlagAlpha/Llama2-Chinese-13b-Chat-4bit为例
-llm = Llama2(model_name_or_path='FlagAlpha/Llama2-Chinese-13b-Chat-4bit', bit4=True)
-
-while True:
-    human_input = input("Human: ")
-    response = llm(human_input)
-    print(f"Llama2: {response}")
 ```
 
 ## 📖 学习资料  
