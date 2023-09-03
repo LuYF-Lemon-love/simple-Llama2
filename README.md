@@ -3,6 +3,7 @@
 ## 🗂️ 内容导引
 - [Llama2-Chinese](#llama2-chinese)
   - [🗂️ 内容导引](#️-内容导引)
+  - [安装](#安装)
   - [🐼 国内Llama2最新下载地址！](#-国内llama2最新下载地址)
   - [⏬ 模型部署](#-模型部署)
     - [模型下载](#模型下载)
@@ -29,6 +30,17 @@
     - [Llama相关论文](#llama相关论文)
     - [Llama2的评测结果](#llama2的评测结果)
   - [参考](#参考)
+
+## 安装
+
+```shell
+python -m venv env
+source env/bin/activate
+which python
+pip install --upgrade pip
+pip install torch transformers sentencepiece protobuf accelerate -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
 ## 🐼 国内Llama2最新下载地址！
 
@@ -76,30 +88,7 @@
 
 ### 模型调用代码示例
 
-```python
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
-model = AutoModelForCausalLM.from_pretrained('FlagAlpha/Atom-7B',device_map='auto',torch_dtype=torch.float16,load_in_8bit=True)
-model =model.eval()
-tokenizer = AutoTokenizer.from_pretrained('FlagAlpha/Atom-7B',use_fast=False)
-tokenizer.pad_token = tokenizer.eos_token
-input_ids = tokenizer(['<s>Human: 介绍一下中国\n</s><s>Assistant: '], return_tensors="pt",add_special_tokens=False).input_ids.to('cuda')        
-generate_input = {
-    "input_ids":input_ids,
-    "max_new_tokens":512,
-    "do_sample":True,
-    "top_k":50,
-    "top_p":0.95,
-    "temperature":0.3,
-    "repetition_penalty":1.3,
-    "eos_token_id":tokenizer.eos_token_id,
-    "bos_token_id":tokenizer.bos_token_id,
-    "pad_token_id":tokenizer.pad_token_id
-}
-generate_ids  = model.generate(**generate_input)
-text = tokenizer.decode(generate_ids[0])
-print(text)
-```
+1. [get_start.py](get_start.py)
 
 ### Gradio快速搭建问答平台
 
@@ -281,3 +270,9 @@ while True:
 [4] [Clue](https://github.com/CLUEbenchmark/CLUEDatasetSearch)
 
 [5] [MNBVC](https://github.com/esbatmop/MNBVC)
+
+[6] [Error：AutoTokenizer.from_pretrained，UnboundLocalError: local variable 'sentencepiece_model_pb2' referenced before assignment](https://github.com/huggingface/transformers/issues/25848)
+
+[7] [Loading Flan-T5 tokenizer throwing UnboundLocalError for variable sentencepiece_model_pb2](https://github.com/huggingface/transformers/issues/25667)
+
+[8] [Offline mode](https://huggingface.co/docs/transformers/installation#offline-mode)
