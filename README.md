@@ -16,7 +16,6 @@
       - [Step2: 数据准备](#step2-数据准备)
       - [Step3: 微调脚本](#step3-微调脚本)
     - [加载微调模型](#加载微调模型)
-  - [🥇 模型评测](#-模型评测)
   - [💪 外延能力](#-外延能力)
     - [LangChain](#langchain)
   - [📖 学习资料](#-学习资料)
@@ -130,28 +129,6 @@ generate_ids  = model.generate(**generate_input)
 text = tokenizer.decode(generate_ids[0])
 print(text)
 ```
-
-## 🥇 模型评测
-为了能够更加清晰地了解Llama2模型的中文问答能力，我们筛选了一些具有代表性的中文问题，对Llama2模型进行提问。我们测试的模型包含Meta公开的Llama2-7B-Chat和Llama2-13B-Chat两个版本，没有做任何微调和训练。测试问题筛选自[AtomBulb](https://github.com/AtomEcho/AtomBulb)，共95个测试问题，包含：通用知识、语言理解、创作能力、逻辑推理、代码编程、工作技能、使用工具、人格特征八个大的类别。
-
-测试中使用的Prompt如下，例如对于问题“列出5种可以改善睡眠质量的方法”：
-```
-[INST] 
-<<SYS>>
-You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe.  Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature. The answer always been translate into Chinese language.
-
-If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
-
-The answer always been translate into Chinese language.
-<</SYS>>
-
-列出5种可以改善睡眠质量的方法
-[/INST]
-```
-Llama2-7B-Chat的测试结果见[meta_eval_7B.md](assets/meta_eval_7B.md)，Llama2-13B-Chat的测试结果见[meta_eval_13B.md](assets/meta_eval_13B.md)。
-
-通过测试我们发现，Meta原始的Llama2 Chat模型对于中文问答的对齐效果一般，大部分情况下都不能给出中文回答，或者是中英文混杂的形式。因此，基于中文数据对Llama2模型进行训练和微调十分必要，我们的中文版Llama2模型也已经在训练中，近期将对社区开放。
-
 
 ## 💪 外延能力
 
