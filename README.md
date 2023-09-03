@@ -1,7 +1,7 @@
-# Llama2-Chinese
+# simple-Llama2
 
 ## 🗂️ 内容导引
-- [Llama2-Chinese](#llama2-chinese)
+- [simple-Llama2](#simple-llama2)
   - [🗂️ 内容导引](#️-内容导引)
   - [安装](#安装)
   - [⏬ 模型部署](#-模型部署)
