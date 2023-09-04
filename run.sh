@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "首次使用"
+git commit -m "修改微调脚本"
 git push

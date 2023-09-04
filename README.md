@@ -27,7 +27,7 @@ python -m venv env
 source env/bin/activate
 which python
 pip install --upgrade pip
-pip install torch transformers sentencepiece protobuf accelerate gradio bitsandbytes scipy -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install torch transformers sentencepiece protobuf accelerate deepspeed datasets peft evaluate scikit-learn tensorboard -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
@@ -63,12 +63,14 @@ pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 #### Step1: 环境准备
 
-根据[requirements.txt](https://github.com/FlagAlpha/Llama2-Chinese/blob/main/requirements.txt)安装对应的环境依赖。
+根据[requirements.txt](requirements.txt)安装对应的环境依赖。
 
 #### Step2: 数据准备
+
 在data目录下提供了一份用于模型sft的数据样例：
-- 训练数据：[data/train_sft.csv](https://github.com/FlagAlpha/Llama2-Chinese/blob/main/data/train_sft.csv)
-- 验证数据：[data/dev_sft.csv](https://github.com/FlagAlpha/Llama2-Chinese/blob/main/data/dev_sft.csv)
+
+- 训练数据：[data/train_sft.csv](data/train_sft.csv)
+- 验证数据：[data/dev_sft.csv](data/dev_sft.csv)
 
 每个csv文件中包含一列“text”，每一行为一个训练样例，每个训练样例按照以下格式将问题和答案组织为模型输入，您可以按照以下格式自定义训练和验证数据集：
 ```
@@ -81,7 +83,7 @@ pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 #### Step3: 微调脚本
 
-我们提供了用于微调的脚本[train/sft/finetune.sh](https://github.com/FlagAlpha/Llama2-Chinese/blob/main/train/sft/finetune.sh)，通过修改脚本的部分参数实现模型的微调，关于微调的具体代码见[train/sft/finetune_clm_lora.py](https://github.com/FlagAlpha/Llama2-Chinese/blob/main/train/sft/finetune_clm_lora.py)，单机多卡的微调可以通过修改脚本中的`--include localhost:0`来实现。
+我们提供了用于微调的脚本[train/sft/finetune.sh](train/sft/finetune.sh)，通过修改脚本的部分参数实现模型的微调，关于微调的具体代码见[train/sft/finetune_clm_lora.py](train/sft/finetune_clm_lora.py)，单机多卡的微调可以通过修改脚本中的`--include localhost:0`来实现。
 
 
 ### 加载微调模型
