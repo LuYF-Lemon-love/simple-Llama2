@@ -149,3 +149,11 @@ print(text)
 [7] [Loading Flan-T5 tokenizer throwing UnboundLocalError for variable sentencepiece_model_pb2](https://github.com/huggingface/transformers/issues/25667)
 
 [8] [Offline mode](https://huggingface.co/docs/transformers/installation#offline-mode)
+
+[9] [quicktour#autotokenizer](https://huggingface.co/docs/transformers/quicktour#autotokenizer)
+
+[10] [TrainingArguments](https://huggingface.co/docs/transformers/v4.32.1/en/main_classes/trainer#transformers.TrainingArguments)
+
+[11] [Use tokenizers from 🤗 Tokenizers](https://huggingface.co/docs/transformers/fast_tokenizers)
+
+[12] [初始化后处理](https://docs.python.org/zh-cn/3/library/dataclasses.html#post-init-processing)
