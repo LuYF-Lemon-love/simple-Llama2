@@ -1,11 +1,10 @@
-output_model=/mnt/data/zhangzheng/data/llama2/example
-# 需要修改到自己的输入目录
+output_model=output
 if [ ! -d ${output_model} ];then  
     mkdir ${output_model}
 fi
 cp ./finetune.sh ${output_model}
 CUDA_VISIBLE_DEVICES=0,1 deepspeed --num_gpus=2  finetune_clm_lora.py \
-    --model_name_or_path meta-llama/Llama-2-7b-chat-hf \
+    --model_name_or_path ../../Atom-7B \
     --train_files ../../data/train_sft.csv \
     --validation_files  ../../data/dev_sft.csv \
     --per_device_train_batch_size 1 \
